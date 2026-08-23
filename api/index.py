@@ -106,7 +106,7 @@ class DeviceData(BaseModel):
 # Home
 # --------------------------------------------------
 
-@app.get("/")
+@app.get("/api")
 def home():
     return {
         "message": "Device Repair vs Replace API is running"
@@ -117,7 +117,7 @@ def home():
 # Prediction
 # --------------------------------------------------
 
-@app.post("/predict")
+@app.post("/api/predict")
 def predict(device: DeviceData):
 
     input_data = pd.DataFrame([{

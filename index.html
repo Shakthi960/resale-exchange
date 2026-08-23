@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Device Repair vs Replace</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Device Repair vs Replace</h1>
+            <p>Use machine learning to decide whether your device should be repaired or replaced.</p>
+        </div>
+
+
+        <div class="card">
+
+            <form id="predictionForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Device Age (Years)</label>
+                        <input
+                            type="number"
+                            id="device_age_years"
+                            min="0.1"
+                            max="10"
+                            step="0.1"
+                            placeholder="Example: 2.5"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Battery Health (%)</label>
+                        <input
+                            type="number"
+                            id="battery_health"
+                            min="0"
+                            max="100"
+                            placeholder="Example: 80"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Screen Damage</label>
+                        <select id="screen_damage" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Body Condition</label>
+                        <select id="body_condition" required>
+                            <option value="">Select</option>
+                            <option value="0">Good</option>
+                            <option value="1">Average</option>
+                            <option value="2">Poor</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Estimated Repair Cost (₹)</label>
+                        <input
+                            type="number"
+                            id="repair_cost"
+                            min="0"
+                            placeholder="Example: 5000"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Current Device Value (₹)</label>
+                        <input
+                            type="number"
+                            id="device_value"
+                            min="0"
+                            placeholder="Example: 25000"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Previous Repairs</label>
+                        <input
+                            type="number"
+                            id="previous_repairs"
+                            min="0"
+                            max="20"
+                            placeholder="Example: 1"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Warranty Remaining</label>
+                        <select id="warranty_remaining" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button type="submit">
+                    Predict
+                </button>
+
+            </form>
+
+
+            <div id="loading" class="loading hidden">
+                Analyzing device...
+            </div>
+
+
+            <div id="result" class="result hidden">
+
+                <p class="result-label">Recommendation</p>
+
+                <h2 id="recommendation"></h2>
+
+                <p>
+                    Confidence:
+                    <strong id="confidence"></strong>
+                </p>
+
+            </div>
+
+
+            <div id="error" class="error hidden"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
